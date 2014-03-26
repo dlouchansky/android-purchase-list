@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <EditTextPreference
+        android:key="restkey"
+        android:summary="@string/restKeyPref"
+        android:title="@string/restKeyTitle"/>
+    
+    <CheckBoxPreference 
+        android:key="sync"
+        android:summary="@string/EnableSync"
+        android:title="@string/Sync"/>
+    
+    <CheckBoxPreference 
+        android:key="notif"
+        android:summary="@string/EnableNotif"
+        android:title="@string/Notif"/>
+    
+
+    
+</PreferenceScreen>

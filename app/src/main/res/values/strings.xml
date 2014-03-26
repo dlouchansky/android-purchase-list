@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Purchase list</string>
+    <string name="prefAct">Preferences</string>
+    <string name="listsAct">Lists</string> 
+    
+    <string name="menu_settings">Settings</string>
+    <string name="Add">Add</string>
+    <string name="Name">Name</string>
+    <string name="Quantity">Quantity</string>
+    <string name="RemoveItem">Remove Item?</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="Pref">Pref</string>
+    
+    <string name="restKeyPref">Input your REST key.</string>
+    <string name="restKeyTitle">REST key</string>
+    
+    <string name="EnableNotif">Enable toast synchronisation notifications</string>
+    <string name="Notif">Notifications</string>
+    <string name="EnableSync">Enable auto synchronisation</string>
+    <string name="Sync">Synchronisation</string>   
+    <string name="ListsButton">Lists</string> 
+    <string name="NewListHint">New</string>
+    
+
+    
+    <string name="Import">Imp</string>
+    <string name="Export">Exp</string>
+    
+</resources>

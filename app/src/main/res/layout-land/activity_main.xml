@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:tools="http://schemas.android.com/tools"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    tools:context=".MainActivity" 
+	    android:orientation="vertical">
+	    
+	    
+    	<TextView 
+    	    android:id="@+id/chosenList"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:textSize="22sp"
+    	    android:padding="6dp"
+    	    android:textAllCaps="true"
+    	    />
+    	
+        <View
+           android:layout_width="fill_parent"
+           android:layout_height="0.2dp"
+           android:id="@+id/separator"
+           android:visibility="visible"
+           android:background="@android:color/darker_gray"/>
+    		    
+	    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    xmlns:tools="http://schemas.android.com/tools"
+		    android:layout_width="match_parent"
+		    android:layout_height="60dp"
+		    tools:context=".MainActivity" 
+		    android:orientation="horizontal"
+		    android:weightSum="7">
+	        
+		    <EditText 
+		        android:id="@+id/Name"
+		        android:hint="@string/Name"
+		        android:layout_weight="2"
+		        android:layout_width="0dp"
+		        android:layout_height="match_parent"
+		        android:textSize="22sp"/>
+		    
+		    <EditText 
+		        android:id="@+id/Quantity"
+		        android:hint="@string/Quantity"
+		        android:layout_width="0dp"
+		        android:layout_weight="2"
+		        android:layout_height="match_parent"
+		        android:textSize="22sp"/>
+		    
+		    <Button 
+		        android:id="@+id/Add"
+		        android:text="@string/Add"
+		        android:layout_weight="1"
+		        android:layout_width="0dp"
+		        android:layout_height="match_parent"
+		        android:onClick="addToList"/>  
+		        
+		    <Button
+		        android:id="@+id/Preference"
+		        android:text="@string/Pref"
+		        android:layout_weight="1"
+		        android:layout_width="0dp"
+		        android:layout_height="match_parent"		        
+		        android:onClick="openPreferences"/>  
+		        
+		    <Button
+		        android:id="@+id/Lists"
+		        android:text="@string/ListsButton"
+		        android:layout_weight="1"
+		        android:layout_width="0dp"
+		        android:layout_height="match_parent"		        
+		        android:onClick="openLists"/> 		   
+		         
+		</LinearLayout>
+		
+	    <ListView
+		    android:id="@+id/List"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:textSize="20sp"
+		    android:paddingLeft="10dp">
+	    </ListView>
+</LinearLayout>
