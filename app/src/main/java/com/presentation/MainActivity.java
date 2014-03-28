@@ -1,14 +1,14 @@
-package com.purchaselist;
+package com.presentation;
 
 import java.util.ArrayList;
 
-import com.orm_model.DatabaseManager;
-import com.orm_model.ItemListORM;
-import com.orm_model.ListItemORM;
+import com.persistence.DatabaseManager;
+import com.persistence.ItemListORM;
+import com.persistence.ListItemORM;
+import com.integration.ExportIntentService;
+import com.integration.HTTPTask;
+import com.integration.ORMAdapter;
 import com.purchaselist.R;
-import com.rest.ExportIntentService;
-import com.rest.HTTPTask;
-import com.rest.ORMAdapter;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -17,15 +17,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -36,7 +36,9 @@ public class MainActivity extends Activity {
 	private static ArrayList<ListItemORM> list = new ArrayList<ListItemORM>();
 	private static ItemListORM chosenList;
 
-	
+    public static final int PREFERENCES = 1337;
+    public static final int SELECT_LIST = 8008135;
+
 	private ArrayAdapter<ListItemORM> adapter;
 
 	@Override
@@ -44,11 +46,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 		setContentView(R.layout.activity_main);
-		
-		Button add = (Button) findViewById(R.id.Add);
-		add.getBackground().setColorFilter(Color.parseColor("#7A76E8"),PorterDuff.Mode.MULTIPLY);
-		add.setTextColor(Color.WHITE);
-		
+
 		adapter = new ArrayAdapter<ListItemORM>(this, android.R.layout.simple_list_item_1, list){
 		    @Override
 		    public View getView(int position, View convertView, ViewGroup parent) {
@@ -60,7 +58,7 @@ public class MainActivity extends Activity {
 		        return textView;
 		    }
 		};
-		
+
 		ListView listView = (ListView) findViewById(R.id.List);
 		listView.setAdapter(adapter);
 		
@@ -82,11 +80,12 @@ public class MainActivity extends Activity {
 		        		}
 		            }
 		        });
-		    	
+
 		    	builder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
-		            public void onClick(DialogInterface dialog, int id) {}
-		        });
-		 
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+
 		    	builder.setMessage(R.string.RemoveItem)
 		    	       .setTitle(R.string.RemoveItem);
 
@@ -135,14 +134,10 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	public static final int PREFERENCES = 1337; // leet
-	
-	public void openPreferences(View v) {
+	public void openPreferences() {
 		Intent pref = new Intent(this, PrefActivity.class);
 		startActivityForResult(pref, PREFERENCES);
 	}
-	
-	public static final int SELECT_LIST = 8008135; // boobies
 	
 	public void openLists(View v) {
 		Intent listsIntent = new Intent("com.purchaselist.action.LIST_SELECT");
@@ -214,5 +209,23 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, ExportIntentService.class);
 		startService(intent.putExtra("url", Prefs.restUrl).putExtra("json", data).putExtra("notif", notif));	
 	}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_main_actions, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_settings:
+                openPreferences();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }

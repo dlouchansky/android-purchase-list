@@ -16,13 +16,13 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:name="com.purchaselist.PurchasesApp"
+        android:name="com.presentation.PurchasesApp"
         android:theme="@style/AppTheme" >
         
-        <service android:name="com.rest.ExportIntentService"/>
+        <service android:name="com.integration.ExportIntentService"/>
         
         <activity
-            android:name="com.purchaselist.MainActivity"
+            android:name="com.presentation.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +33,7 @@
         </activity>
         
         <activity
-            android:name="com.purchaselist.PrefActivity"
+            android:name="com.presentation.PrefActivity"
             android:label="@string/prefAct">
              <intent-filter>
                 <category android:name="android.intent.category.PREFERENCE" />
@@ -41,7 +41,7 @@
         </activity>
         
         <activity
-            android:name="com.purchaselist.ListsActivity"
+            android:name="com.presentation.ListsActivity"
             android:label="@string/listsAct">
             <intent-filter>
                 <action android:name="com.purchaselist.action.LIST_SELECT" />

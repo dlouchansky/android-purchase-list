@@ -1,4 +1,4 @@
-package com.orm_model;
+package com.persistence;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;

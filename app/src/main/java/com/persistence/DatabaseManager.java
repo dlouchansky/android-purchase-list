@@ -1,4 +1,4 @@
-package com.orm_model;
+package com.persistence;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -8,8 +8,7 @@ import android.content.Context;
 
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
-import com.orm_model.ItemListORM;
-import com.purchaselist.PurchasesApp;
+import com.presentation.PurchasesApp;
 
 public class DatabaseManager {
 

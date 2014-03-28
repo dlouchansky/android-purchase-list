@@ -1,13 +1,13 @@
-package com.file_model;
+package com.integration;
 
 import java.io.Serializable;
 
-public class PurchaseBean implements Serializable {
+public class Purchase implements Serializable {
     private String name;
     private String quantity;
     private static final long serialVersionUID = 1;
  
-    public PurchaseBean() {
+    public Purchase() {
     }
  
     public String getName() {

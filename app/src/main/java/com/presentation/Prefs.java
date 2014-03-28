@@ -1,4 +1,4 @@
-package com.purchaselist;
+package com.presentation;
 
 import android.app.Activity;
 import android.content.SharedPreferences;

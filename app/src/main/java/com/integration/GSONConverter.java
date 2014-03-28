@@ -1,4 +1,4 @@
-package com.rest;
+package com.integration;
 
 import java.util.List;
 import java.util.Map;

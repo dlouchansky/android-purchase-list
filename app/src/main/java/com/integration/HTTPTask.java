@@ -1,4 +1,4 @@
-package com.rest;
+package com.integration;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.purchaselist.MainActivity;
+import com.presentation.MainActivity;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.widget.Toast;

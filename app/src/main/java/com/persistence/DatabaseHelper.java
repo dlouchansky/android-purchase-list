@@ -1,4 +1,4 @@
-package com.orm_model;
+package com.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,6 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.orm_model.ItemListORM;
-import com.orm_model.ListItemORM;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "PurchaseList.sqlite";

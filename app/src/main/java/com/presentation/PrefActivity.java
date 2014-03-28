@@ -1,11 +1,11 @@
-package com.purchaselist;
-
-import com.purchaselist.R;
+package com.presentation;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.view.KeyEvent;
 import android.view.WindowManager;
+
+import com.purchaselist.R;
 
 public class PrefActivity extends PreferenceActivity {
 	@SuppressWarnings("deprecation")
@@ -13,6 +13,7 @@ public class PrefActivity extends PreferenceActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 		super.onCreate(savedInstanceState);
+
 		addPreferencesFromResource(R.xml.activity_pref);
 	}
 	

@@ -1,4 +1,4 @@
-package com.rest;
+package com.integration;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;

@@ -1,4 +1,4 @@
-package com.rest;
+package com.integration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,10 +8,10 @@ import java.util.Map;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
-import com.orm_model.DatabaseManager;
-import com.orm_model.ItemListORM;
-import com.orm_model.ListItemORM;
-import com.purchaselist.PurchasesApp;
+import com.persistence.DatabaseManager;
+import com.persistence.ItemListORM;
+import com.persistence.ListItemORM;
+import com.presentation.PurchasesApp;
 
 public class ORMAdapter {
 	

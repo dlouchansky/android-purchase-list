@@ -1,0 +1,11 @@
+
+app/build*
+.idea*
+.gradle*
+
+app/app.iml
+
+app/libs/*
+gradle/*
+
+android-purchase-list.iml

@@ -1,13 +1,13 @@
-package com.purchaselist;
+package com.presentation;
 
 import java.util.ArrayList;
 
-import com.orm_model.DatabaseManager;
-import com.orm_model.ItemListORM;
-import com.orm_model.ListItemORM;
+import com.persistence.DatabaseManager;
+import com.persistence.ItemListORM;
+import com.persistence.ListItemORM;
+import com.integration.ExportIntentService;
+import com.integration.ORMAdapter;
 import com.purchaselist.R;
-import com.rest.ExportIntentService;
-import com.rest.ORMAdapter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,6 +15,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -29,6 +32,8 @@ import android.widget.TextView;
 public class ListsActivity extends Activity {
 	private static ArrayAdapter<ItemListORM> listsAdapter;
 	public static ArrayList<ItemListORM> listsList = new ArrayList<ItemListORM>();
+
+    public static final int PREFERENCES = 1337;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -147,6 +152,30 @@ public class ListsActivity extends Activity {
 		Intent intent = new Intent(this, ExportIntentService.class);
 		startService(intent.putExtra("url", Prefs.restUrl).putExtra("json", data).putExtra("notif", notif));
 	}
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_main_actions, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_settings:
+                openPreferences();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void openPreferences() {
+        Intent pref = new Intent(this, PrefActivity.class);
+        startActivityForResult(pref, PREFERENCES);
+    }
 	
 	
 }
